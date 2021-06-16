@@ -1,0 +1,5 @@
+baseUrl = 'http://192.168.117.15:8181/restconf'
+baseIP = '192.168.117.15'
+port = '8181'
+username = 'admin'
+password = 'admin'

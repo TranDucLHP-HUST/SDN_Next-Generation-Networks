@@ -1,0 +1,4 @@
+httplib2
+numpy
+requests
+termcolor
