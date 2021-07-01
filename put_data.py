@@ -82,11 +82,21 @@ def add_flow(mac_source, mac_destination, port_source, port_destination, flow_id
     return format_add_flow % (flow_id, flow_name, port_destination, port_source, mac_source, mac_destination, table_id)
 
 
+def filter_max(host):
+    list_str = host.split(':')
+    if len(list_str[0]) == 2:
+        return host
+    else:
+        return ':'.join(list_str[1:])
+
+
 def put_request(url, data):
     global flow
     flow += 1
     # get each data in data
     node, mac_src, mac_dst, port_in, port_out, flow = data
+    mac_src = filter_max(mac_src)
+    mac_dst = filter_max(mac_dst)
 
     # each switch has 1 table
     table = re.findall(r'\d+', node)[0]
